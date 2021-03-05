@@ -3,10 +3,10 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 class MakeSchema {
-  constructor(collectionName, schemaObj) {
+  constructor(collectionName, schemaObj, customSettings) {
     this.schemaRules = schemaObj;
     this.collectionName = collectionName;
-    this.CreatedSchema = new Schema(this.schemaRules);
+    this.CreatedSchema = new Schema(this.schemaRules, customSettings);
   }
 
   getModel() {
