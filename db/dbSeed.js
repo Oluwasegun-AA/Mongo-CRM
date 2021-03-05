@@ -1,9 +1,19 @@
 import connection from './dbSetup';
 import {
   users,
+  leads,
+  seeds,
+  domains,
+  clients,
+  messages,
 } from './seedData';
 import {
-  UserModel
+  UserModel,
+  SeedModel,
+  LeadModel,
+  DomainModel,
+  ClientModel,
+  MessageModel,
 } from '../models';
 
 const dropCollections = async () => {
@@ -13,6 +23,11 @@ const dropCollections = async () => {
 
 const createCollections = async () => {
   UserModel.insertMany(users);
+  ClientModel.insertMany(clients);
+  MessageModel.insertMany(messages);
+  LeadModel.insertMany(leads);
+  DomainModel.insertMany(domains);
+  SeedModel.insertMany(seeds);
 };
 
 const seedDb = async () => {
