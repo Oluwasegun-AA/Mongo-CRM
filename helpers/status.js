@@ -1,8 +1,10 @@
 const statusCodes = {
   success: 200,
-  badRequest: 400,
   notFound: 404,
+  conflict: 409,
+  badRequest: 400,
   serverError: 500,
+  unauthorized: 401
 };
 
 const status = {
