@@ -7,11 +7,11 @@ const user1 = object();
 const admin = object();
 const client = object();
 
-const randomNumber = Math.floor(Math.random() * 10) + 1
+const randomNumber = Math.floor(Math.random() * 10) + 1;
 
 const roomId = object();
 
-const ipAddress = '225.41.169.163'
+const ipAddress = '225.41.169.163';
 
 const users = [
   {
@@ -50,7 +50,7 @@ const messages = [
     userId: randomNumber,
     roomID: roomId,
     IP: ipAddress,
-    admin: admin,
+    admin,
   },
 ];
 

@@ -18,7 +18,6 @@ const rules = {
   },
   password: {
     type: String,
-    minlength: 8,
     required: [true, 'password not supplied'],
   }
 };
@@ -26,7 +25,7 @@ const rules = {
 const controller = new MakeSchema('Users', rules);
 const loginController = new MakeSchema(
   'Login',
-  pick(rules, ['email', 'password'])
+  pick(rules, ['username', 'password'])
 );
 const LoginModel = loginController.getModel();
 const UserModel = controller.getModel();

@@ -18,7 +18,10 @@ const connect = async () => {
       config: { autoIndex: false },
     },
     err => {
-      if (err) process.stdout.write(`Could not connect to mongo server!\n ${err} \n`);
+      if (err) {
+        process.stdout.write(`Could not connect to mongo server!\n ${err} \n`);
+        process.exit(1);
+      }
     }
   );
   return db;

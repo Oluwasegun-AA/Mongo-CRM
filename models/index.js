@@ -3,7 +3,7 @@ import { ClientModel } from './clientModel';
 import { MessageModel } from './messageModel';
 import { LeadModel } from './leadModel';
 import { DomainModel } from './domainModel';
-import {SeedModel} from './seederModel';
+import { SeedModel } from './seederModel';
 
 export {
   SeedModel,
