@@ -1,5 +1,6 @@
 const statusCodes = {
   success: 200,
+  created: 201,
   notFound: 404,
   conflict: 409,
   badRequest: 400,

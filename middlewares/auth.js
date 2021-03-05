@@ -10,7 +10,7 @@ import {
 
 const validateSignupData = async (req, res, next) => {
   const data = GetPayloadData.signup(req);
-  const error = validate(res, UserModel, data);
+  const error = validate(UserModel, data);
   if (!isEmpty(error)) {
     return responseHandler(
       res,
@@ -27,7 +27,7 @@ const validateSignupData = async (req, res, next) => {
 
 const validateLoginData = (req, res, next) => {
   const data = GetPayloadData.login(req);
-  const error = validate(res, LoginModel, data);
+  const error = validate(LoginModel, data);
   if (!isEmpty(error)) {
     return responseHandler(
       res,

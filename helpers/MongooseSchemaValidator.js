@@ -5,4 +5,4 @@ const validate = (Model, data) => {
 };
 
 
-export { validate };
+export default validate;

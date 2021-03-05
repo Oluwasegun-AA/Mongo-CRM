@@ -2,7 +2,7 @@ import { pick } from 'lodash';
 
 class GetPayloadData {
   static login(req) {
-    return pick(req.body, ['email', 'password']);
+    return pick(req.body, ['username', 'password']);
   }
 
   static signup(req) {

@@ -4,6 +4,7 @@ import connection from '../db/dbSetup';
 import {
   responseHandler,
   statusCodes,
+  status,
   Jwt,
   Password,
 } from '../helpers';
@@ -14,22 +15,22 @@ class Auth {
   static async login(req, res) {
     const validUser = Password.decrypt(req.body.password, res.data.password);
     if (validUser) {
-      return responseHandler.success(
+      return responseHandler(
         res,
         {
           code: statusCodes.success,
           message: 'Login Success',
           data: {
-            token: encrypt(pick(res.data, ['id', 'email', 'role'])),
+            token: encrypt(pick(res.data, ['username'])),
           }
         }
       );
     }
-    return responseHandler.error(
+    return responseHandler(
       res,
       {
         code: statusCodes.unauthorized,
-        message: unauthorized('Incorrect email or password'),
+        message: 'Incorrect email or password',
         status: status.error
       }
     );
@@ -44,7 +45,7 @@ class Auth {
     const model = new UserModel(data);
     await model.save((err, value) => {
       if (err) {
-        return responseHandler.error(
+        return responseHandler(
           res,
           {
             code: statusCodes.serverError,
@@ -57,7 +58,7 @@ class Auth {
         res,
         {
           code: statusCodes.created,
-          message: created('User '),
+          message: 'User Created',
           data: {
             token: encrypt(pick(value, ['id', 'email'])),
           }

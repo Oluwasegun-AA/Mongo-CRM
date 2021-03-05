@@ -5,6 +5,7 @@ import {
   GetPayloadData,
   responseHandler,
   statusCodes,
+  status
 } from '../helpers';
 
 const checkUserExist = async (req, res, next) => {
@@ -12,15 +13,15 @@ const checkUserExist = async (req, res, next) => {
     url,
     params: { id },
   } = req;
-  const { email } = GetPayloadData.login(req);
-  const data = await UserModel.findOne({ email });
+  const { username } = GetPayloadData.login(req);
+  const data = await UserModel.findOne({ username });
   if (!isEmpty(data) && (url === '/signup' || url === '/')) {
     return responseHandler(
       res,
       {
-      code:statusCodes.conflict,
-      message: 'User Already signed up',
-      status: status.error
+        code: statusCodes.conflict,
+        message: `User with username "${username}" already signed up`,
+        status: status.error
       }
     );
   }
@@ -28,14 +29,14 @@ const checkUserExist = async (req, res, next) => {
     return responseHandler(
       res,
       {
-      code: statusCodes.notFound,
-      message: 'User not found',
-      status: status.error
+        code: statusCodes.notFound,
+        message: 'User not found',
+        status: status.error
       }
     );
   }
   if (url === '/login') {
-    res.data = pick(data, ['uusername','email', 'password']);
+    res.data = pick(data, ['username', 'email', 'password']);
   }
   next();
 };
@@ -46,9 +47,9 @@ const checkUserInParamExist = async (req, res, next) => {
     return responseHandler(
       res,
       {
-      code: statusCodes.notFound,
-      message: 'User not found',
-      status: status.error
+        code: statusCodes.notFound,
+        message: 'User not found',
+        status: status.error
       }
     );
   }
@@ -64,9 +65,9 @@ const checkUserInToken = async (req, res, next) => {
     return responseHandler(
       res,
       {
-      code: statusCodes.unauthorized,
-      message: 'Unauthorized, Invalid Token',
-      status: status.error
+        code: statusCodes.unauthorized,
+        message: 'Unauthorized, Invalid Token',
+        status: status.error
       }
     );
   }
@@ -78,5 +79,4 @@ export {
   checkUserExist,
   checkUserInParamExist,
   checkUserInToken,
-  checkAdminInToken,
 };

@@ -1,6 +1,5 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import { statusCodes,status } from './status';
 
 dotenv.config();
 const { SECRETE } = process.env;
@@ -16,14 +15,7 @@ class Jwt {
     return new Promise((resolve) => {
       jwt.verify(token, SECRETE, (err, data) => {
         if (err) {
-          return responseHandler(
-            res,
-            {
-            code: statusCodes.unauthorized,
-            message: 'Invalid Token',
-            status: status.error,
-            }
-          );
+          resolve(null);
         }
         resolve(data);
       });
