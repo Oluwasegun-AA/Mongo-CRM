@@ -1,4 +1,4 @@
-import { MakeSchema, } from '../helpers';
+import { CreateModelAndSchema, } from '../helpers';
 
 const rules = {
   lead_id: {
@@ -13,8 +13,8 @@ const rules = {
   timestamp: { type: Date, default: Date.now },
 };
 
-const controller = new MakeSchema('Leads', rules, { versionKey: false });
-const LeadModel = controller.getModel();
-const LeadSchema = controller.getSchema();
+const lead = new CreateModelAndSchema('Leads', rules, { versionKey: false });
+const LeadModel = lead.getModel();
+const LeadSchema = lead.getSchema();
 
 export { LeadModel, LeadSchema };

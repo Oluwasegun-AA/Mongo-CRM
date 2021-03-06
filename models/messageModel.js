@@ -1,4 +1,4 @@
-import { MakeSchema } from '../helpers';
+import { CreateModelAndSchema } from '../helpers';
 
 const rules = {
   message: {
@@ -31,8 +31,8 @@ const rules = {
   timestamp: { type: Number, default: Date.now },
 };
 
-const controller = new MakeSchema('Messages', rules, { versionKey: false });
-const MessageModel = controller.getModel();
-const MessageSchema = controller.getSchema();
+const message = new CreateModelAndSchema('Messages', rules, { versionKey: false });
+const MessageModel = message.getModel();
+const MessageSchema = message.getSchema();
 
 export { MessageModel, MessageSchema };

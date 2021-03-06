@@ -1,4 +1,4 @@
-import { MakeSchema } from '../helpers';
+import { CreateModelAndSchema } from '../helpers';
 
 const rules = {
   id: {
@@ -7,8 +7,8 @@ const rules = {
   },
 };
 
-const controller = new MakeSchema('Seeds', rules, { versionKey: false });
-const SeedModel = controller.getModel();
-const SeedSchema = controller.getSchema();
+const seeder = new CreateModelAndSchema('Seeds', rules, { versionKey: false });
+const SeedModel = seeder.getModel();
+const SeedSchema = seeder.getSchema();
 
 export { SeedModel, SeedSchema };

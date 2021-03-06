@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 
-class MakeSchema {
+class CreateModelAndSchema {
   constructor(collectionName, schemaObj, customSettings) {
     this.schemaRules = schemaObj;
     this.collectionName = collectionName;
@@ -22,4 +22,4 @@ class MakeSchema {
   }
 }
 
-export { MakeSchema, Schema };
+export { CreateModelAndSchema, Schema };

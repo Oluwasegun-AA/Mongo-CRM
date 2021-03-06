@@ -1,4 +1,4 @@
-import { MakeSchema } from '../helpers';
+import { CreateModelAndSchema } from '../helpers';
 
 const rules = {
   userId: {
@@ -13,8 +13,8 @@ const rules = {
   timestamp: { type: Date, default: Date.now },
 };
 
-const controller = new MakeSchema('Clients', rules, { versionKey: false });
-const ClientModel = controller.getModel();
-const ClientSchema = controller.getSchema();
+const client = new CreateModelAndSchema('Clients', rules, { versionKey: false });
+const ClientModel = client.getModel();
+const ClientSchema = client.getSchema();
 
 export { ClientModel, ClientSchema };
