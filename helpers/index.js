@@ -2,7 +2,7 @@ import { log, connectionMessage, catchAllError } from './utils';
 import { status, statusCodes, statusMessages } from './status';
 import responseHandler from './responseHandler';
 import Password from './passwordModem';
-import { MakeSchema, Schema } from './mongooseHelper';
+import { CreateModelAndSchema, Schema } from './mongooseHelper';
 import GetPayloadData from './GetPayloadData';
 import validate from './MongooseSchemaValidator';
 import Jwt from './Jwt';
@@ -14,7 +14,7 @@ export {
   Schema,
   Password,
   validate,
-  MakeSchema,
+  CreateModelAndSchema,
   statusCodes,
   catchAllError,
   GetPayloadData,

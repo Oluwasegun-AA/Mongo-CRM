@@ -1,5 +1,5 @@
 import { pick } from 'lodash';
-import { MakeSchema } from '../helpers';
+import { CreateModelAndSchema } from '../helpers';
 
 const rules = {
   email: {
@@ -22,13 +22,13 @@ const rules = {
   }
 };
 
-const controller = new MakeSchema('Users', rules);
-const loginController = new MakeSchema(
+const user = new CreateModelAndSchema('Users', rules);
+const login = new CreateModelAndSchema(
   'Login',
   pick(rules, ['username', 'password'])
 );
-const LoginModel = loginController.getModel();
-const UserModel = controller.getModel();
-const UserSchema = controller.getSchema();
+const LoginModel = login.getModel();
+const UserModel = user.getModel();
+const UserSchema = user.getSchema();
 
 export { UserModel, UserSchema, LoginModel };

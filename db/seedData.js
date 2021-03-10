@@ -88,6 +88,21 @@ const domains = [
   },
 ];
 
+const chatWidgets = [
+  {
+    domain_name: 'chatcloud.co',
+    widget_settings: {
+      theme_color: 'linear-gradient()',
+      image_base64: 'base64;image',
+      font_size: '24px',
+      position: 'bottom-right',
+      message_size: '8px',
+      timestamp_size: '8px',
+      agent_name: 'Felicia'
+    }
+  }
+];
+
 
 export {
   seeds,
@@ -96,4 +111,5 @@ export {
   clients,
   domains,
   messages,
+  chatWidgets,
 };

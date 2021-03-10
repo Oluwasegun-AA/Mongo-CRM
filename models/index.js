@@ -4,6 +4,7 @@ import { MessageModel } from './messageModel';
 import { LeadModel } from './leadModel';
 import { DomainModel } from './domainModel';
 import { SeedModel } from './seederModel';
+import { ChatWidgetModel } from './chatWidgetModel';
 
 export {
   SeedModel,
@@ -14,4 +15,5 @@ export {
   DomainModel,
   ClientModel,
   MessageModel,
+  ChatWidgetModel,
 };

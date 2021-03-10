@@ -1,5 +1,5 @@
 import { Schema } from 'mongoose';
-import { MakeSchema } from '../helpers';
+import { CreateModelAndSchema } from '../helpers';
 
 const rules = {
   extra: {
@@ -41,8 +41,8 @@ const rules = {
   },
 };
 
-const controller = new MakeSchema('Domains', rules, { versionKey: false });
-const DomainModel = controller.getModel();
-const DomainSchema = controller.getSchema();
+const domain = new CreateModelAndSchema('Domains', rules, { versionKey: false });
+const DomainModel = domain.getModel();
+const DomainSchema = domain.getSchema();
 
 export { DomainModel, DomainSchema };
