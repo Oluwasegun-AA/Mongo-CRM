@@ -6,6 +6,7 @@ import {
   domains,
   clients,
   messages,
+  chatWidgets,
 } from './seedData';
 import {
   UserModel,
@@ -14,6 +15,7 @@ import {
   DomainModel,
   ClientModel,
   MessageModel,
+  ChatWidgetModel
 } from '../models';
 
 const dropCollections = async () => {
@@ -28,6 +30,7 @@ const createCollections = async () => {
   LeadModel.insertMany(leads);
   DomainModel.insertMany(domains);
   SeedModel.insertMany(seeds);
+  ChatWidgetModel.insertMany(chatWidgets);
 };
 
 const seedDb = async () => {
