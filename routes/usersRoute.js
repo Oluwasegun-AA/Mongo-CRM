@@ -1,9 +1,6 @@
 import express from 'express';
-
-import { catchAllError } from '../helpers';
 import { UsersController } from '../controllers';
 import {
-  checkUserInToken,
   checkUserInParamExist
 } from '../middlewares';
 
@@ -13,10 +10,8 @@ const {
   getUserAndCount,
 } = UsersController;
 
-users.get('/users', getUserAndCount);
-users.get('/:id', checkUserInToken, checkUserInParamExist, getUser);
+users.get('/', getUserAndCount);
+users.get('/:username', checkUserInParamExist, getUser);
 
-
-catchAllError(users);
 
 export default users;
